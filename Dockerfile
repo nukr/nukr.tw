@@ -3,9 +3,9 @@ MAINTAINER nukr<nukrs.w@gmail.com>
 
 COPY package.json /tmp/package.json
 RUN cd /tmp && npm install
-RUN mkdir /opt/app && cp -a /tmp/node_modules /opt/app
+RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app
 
 WORKDIR /opt/app
 COPY . /opt/app
 
-CMD ["npm", "start"]
+CMD npm run build && npm start
